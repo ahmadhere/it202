@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        canvas {
+            background-color: #001E62;
+            z-index: 27;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <canvas id="canvas1" width="500" height="300"></canvas>
+    
+
+
+    <p>Note that the event handler logs the event data. Open the JS console, click in the blue area, and expand the <strong>original event</strong> object to see the variety of positioning values available in our scripts.</strong>
+    </p>
+
+    <script>
+        $(function() {
+            $("canvas").on("click", function(e) {
+                console.log(e);
+            })
+        })
+    </script>
+    
+    <script>
+        var c = document.getElementById("canvas1");
+        function draw() {
+            console.log(e);
+            var c = document.getElementById("canvas1");
+            var ctx = c.getContext("2d");
+            ctx.arc(250, 150, 100, 0, 2 * Math.PI);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.fillStyle = "green";
+            ctx.font = "75px Helvetica";
+            ctx.fillText("A A", 180, 150);
+            ctx.fillText("UIC", 180, 225);
+            ctx.stroke();
+        }
+        
+        function clear() {
+            console.log(e);
+            ctx.clearRect(0, 0, canvas1.width, canvas.height);
+        }
+        
+        document.addEventListener("keydown", function(e){
+            if (e.keyCode == 88)
+                clear(e);
+            else if (e.keyCode == 85)
+                draw();
+        });
+        
+    </script>
+    
+    <!-- uncomment the following script to show circle code that works-->
+    <script>
+       /* 
+                                var c = document.getElementById("canvas1");
+                                var ctx = c.getContext("2d");
+                                ctx.arc(250, 150, 100, 0, 2 * Math.PI);
+                                ctx.fillStyle = "red";
+                                ctx.fill();
+
+                                ctx.fillStyle = "green";
+                                ctx.font = "75px Helvetica";
+                                ctx.fillText("A A", 180, 150);
+                                ctx.fillText("UIC", 180, 225);
+                                ctx.stroke();
+                            */
+    </script>
+
+</body>
+
+</html>
