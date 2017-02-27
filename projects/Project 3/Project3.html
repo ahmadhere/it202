@@ -7,36 +7,80 @@
     <title>repl.it</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <style>
-        canvas {
-            background-color: #001E62;
-            z-index: 27;
-        }
-    </style>
+    
 
 
 </head>
 
+
 <body>
-    <canvas id="canvas1" width="500" height="300"></canvas>
+    
+</body>
+    <canvas id="player" width="400" height="400" style="border:1px solid blue;"></canvas>
     
     <script>
-        var player = {
-            
-        };
-        var canvas = {
-            
-        };
-        var startScreen = {
-            
-        };
-        var pauseScreen = {
-            
-        };
+
         
+        
+        var width = 400;
+        var height = 400;
+        var player = {
+            x: width/2,
+            y: height-15
+        }
+        
+        var color = "blue";
+        function createPlayer(color){
+            var c = document.getElementById("player");
+            var ctx = c.getContext("2d");
+            ctx.rect(player.x, player.y, 20, 20);
+            ctx.fillStyle = color;
+            ctx.fill();
+            
+            requestAnimationFrame(createPlayer);
+            //ctx.stroke();
+    
+        }
+        
+        createPlayer();
+        document.getElementById("player").addEventListener('keydown', function checkKey(e)
+        {
+            var key = e.keyCode;
+            console.log(key);
+            switch(key){
+            case 39:
+            {
+                player.x += 3;
+                player.y += 3;
+                //break;
+            }
+        }
+        });
+        
+        //checkKey();
+        /*var keys = [];
+    
+        document.body.addEventListener("keydown", function(e) {
+            keys[e.keyCode] = true;
+        });
+ 
+        document.body.addEventListener("keyup", function(e) {
+            keys[e.keyCode] = false;
+        });
+        
+        if (keys[39]){
+            player.x += 2;
+            player.y += 3;
+            createPlayer("red");
+        }*/
+        
+        (function() {
+            var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            window.requestAnimationFrame = requestAnimationFrame;
+        })();
+
+    
     </script>
-
-
-</body>
+    
 
 </html>

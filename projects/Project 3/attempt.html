@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+
+
+</head>
+
+<body>
+    <canvas id="welcomeScreenCanvas" width="500" height="500" style="border:1px solid blue;"></canvas>
+    <canvas id="gameScreenCanvas" width="100" height="100"></canvas>
+    <script>
+        var canvas = getElementById("welcomeScreenCanvas");
+        var ctx = canvas.getContext("2d");
+        var player = {x: int, y: int, lives: int};
+        var enemy  = {x: int, y: int};
+        welcomeScreen = true;
+        startScreen = false;
+        dieScreen = false;
+        
+        function draw (){
+            if (welcomeScreen == true)
+            {
+                var char = new createCharacter(width/2, height/2, 25, 25, "red" )
+            }
+                
+            else if (startScreen == true )
+            {
+                
+            }
+            
+            else if (dieScreen == true )
+            {
+                
+            }
+        }
+        
+    function createCharacter (width, height, x, y, color, type) {
+        this.score = 0;
+        this.height = height;
+        this.width = width;
+        this.type = type;
+        this.x = x;
+        this.y = y;
+        if (color == "red"){
+            ctx.fillStyle(color);
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+            ctx.fill();
+        }
+    }
+    draw();
+    
+    
+    
+        /*function welcomeScreen () {
+            var c = document.getElementById("welcomeScreenCanvas")
+            var ctx = c.getContext("2d")
+            ctx.fillStyle = "#30b703";
+            ctx.fillRect(0, 0, 500, 500);
+            ctx.fill()
+            ctx.fillStyle = "black"
+            ctx.font="15px Arial"
+            ctx.fillText("  Instructions!", 0, 75)
+            ctx.fillText("  Arrow Up To Move Up", 0, 150)
+            ctx.fillText("  Arrow Left To Move Left", 0, 225)
+            ctx.fillText("  Arrow Down To Move Down", 0, 300)
+            ctx.fillText("  Arrow Right To Move Right", 0, 375)
+            ctx.fillText("  Enter to Pause", 0, 450)
+        
+            var c = document.getElementById("welcomeScreenCanvas");
+            var ctx = c.getContext("2d");
+            ctx.font="20px Arial";
+            ctx.fillText("To Start Press Enter", 185, 250)
+            
+            c.addEventListener("keydown", pressEnter(event));
+        }*/
+        
+        function pressEnter(event){
+            if (event.keydown == 13){
+                document.getElementById("welcomeScreenCanvas").hide
+                gameScreen()
+            }
+        }
+        
+        function gameScreen() {
+            
+            var c = document.getElementById("gameScreenCanvas")
+            var ctx = c.getContext("2d")
+            ctx.fillStyle = "blue"
+            ctx.fillRect(0, 0, 500, 500)
+            ctx.fill()
+        }
+        //function welcomeScreenIstructions(){
+            //addEventListener("keydown", myFunction)
+            
+                
+          //  }
+        //}
+        
+        function gameCharacter(){
+            var c = document.getElementById("gameScreenCanvas");
+            var ctx = c.getContext("2d");
+            ctx.arc(250, 150, 100, 0, 2 * Math.PI);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.fillStyle = "green";
+            ctx.font = "75px Helvetica";
+            //ctx.fillText("A A", 180, 150);
+            //ctx.fillText("UIC", 180, 225);
+            ctx.stroke();
+        }
+        
+        
+        
+        //gameScreen()
+        welcomeScreen()
+        
+        var player = {
+            
+        };
+
+        var startScreen = {
+            
+        };
+        var pauseScreen = {
+            
+        };
+        
+    </script>
+
+
+</body>
+
+</html>

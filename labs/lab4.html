@@ -34,8 +34,8 @@
     </script>
     
     <script>
-        var c = document.getElementById("canvas1");
-        function draw() {
+        //var c = document.getElementById("canvas1");
+        //function draw() {
             console.log(e);
             var c = document.getElementById("canvas1");
             var ctx = c.getContext("2d");
@@ -47,12 +47,13 @@
             ctx.fillText("A A", 180, 150);
             ctx.fillText("UIC", 180, 225);
             ctx.stroke();
-        }
+        //}
         
-        function clear() {
-            console.log(e);
-            ctx.clearRect(0, 0, canvas1.width, canvas.height);
-        }
+        //draw()
+        //function clear() {
+            //console.log(e);
+          //  ctx.clearRect(0, 0, canvas1.width, canvas.height);
+        //}
         
         document.addEventListener("keydown", function(e){
             if (e.keyCode == 88)
