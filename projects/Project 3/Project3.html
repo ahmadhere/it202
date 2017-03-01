@@ -16,13 +16,15 @@
 <body>
     
 </body>
-    <canvas id="player" width="400" height="400" style="border:1px solid blue;"></canvas>
+    <canvas id="canvas1" width="600" height="400" style="border:1px solid blue;"></canvas>
     
     <script>
+        var canvas = document.getElementById("canvas1");
+        var ctx = canvas.getContext("2d");
 
         
         
-        var width = 400;
+        var width = 600;
         var height = 400;
         var player = {
             x: width/2,
@@ -31,54 +33,51 @@
         
         var color = "blue";
         function createPlayer(color){
-            var c = document.getElementById("player");
-            var ctx = c.getContext("2d");
+            //var c = document.getElementById("canvas");
             ctx.rect(player.x, player.y, 20, 20);
             ctx.fillStyle = color;
             ctx.fill();
             
             requestAnimationFrame(createPlayer);
             //ctx.stroke();
-    
         }
-        
         createPlayer();
-        document.getElementById("player").addEventListener('keydown', function checkKey(e)
-        {
-            var key = e.keyCode;
-            console.log(key);
-            switch(key){
-            case 39:
-            {
-                player.x += 3;
-                player.y += 3;
-                //break;
+
+        var keydown;
+        $(document).keydown(function(e) {
+            switch(e.which) {
+                case 38: // up
+                    console.log("it worked");
+                    player.x +=3;
+                    player.y -=3;
+                    requestAnimationFrame(function() {
+                    keydown.function(e);
+                    }) 
+                    break;
+                case 39:
+                    
             }
-        }
-        });
-        
-        //checkKey();
-        /*var keys = [];
-    
-        document.body.addEventListener("keydown", function(e) {
-            keys[e.keyCode] = true;
-        });
- 
-        document.body.addEventListener("keyup", function(e) {
-            keys[e.keyCode] = false;
-        });
-        
-        if (keys[39]){
-            player.x += 2;
-            player.y += 3;
-            createPlayer("red");
-        }*/
-        
+            (function() {
+            var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            window.requestAnimationFrame = requestAnimationFrame;})
+        })
+        /*
+        document.onkeydown = function(e){
+            console.log("It worked");
+            if (e.keycode == 39){
+                console.log("Did it worked");
+                player.x += 3;
+                player.y -= 3;
+                createPlayer();
+            }
+                
+        };
+
         (function() {
             var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
             window.requestAnimationFrame = requestAnimationFrame;
         })();
-
+        */
     
     </script>
     
