@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <script> 
+            if (navigator.geolocation)
+                console.log("Geolocation is supported");
+                navigator.geolocation.getCurrentPosition(function(position){
+                    
+                    //console.log("Hello");
+                    console.log(position.coords);
+                });
+            pos = position;
+            var url = "https://data.cityofchicago.org/resource/6zsd-86xi.json";
+            
+            url += "?$where=within_circle(location, "
+                    + pos.coords.latitude
+                    + ","
+                    + pos.coords.longtitude
+                    +", 500)";
+            
+            $.getJSON(url)
+            {
+                console.log(data);
+            }
+            
+        </script>
+    </body>
+</html>
